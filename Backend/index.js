@@ -3,6 +3,8 @@ const cookieParser = require('cookie-parser');
 const app = express();
 const port = 3000;
 const cors = require('cors')
+const { shouldSendSameSiteNone } = require('should-send-same-site-none');
+
 
 const UserRouter = require('./Routers/User');
 const ProjRouter = require('./Routers/Projects');
@@ -13,6 +15,8 @@ const AdminRouter = require('./Routers/Admin');
 
 
 app.use(cookieParser());
+// Apply middleware before routes
+app.use(shouldSendSameSiteNone);
 app.use(cors({
     origin: ['http://localhost:5173'],
     credentials: true
