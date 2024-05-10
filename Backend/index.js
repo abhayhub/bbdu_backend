@@ -18,7 +18,7 @@ app.use(cookieParser());
 // Apply middleware before routes
 app.use(shouldSendSameSiteNone);
 app.use(cors({
-    origin: ['http://localhost:5173','http://finalfrontend-sigma.vercel.app'],
+    origin: ['http://localhost:5173','https://finalfrontend-sigma.vercel.app'],
     credentials: true
 }))
 app.use(express.json());
