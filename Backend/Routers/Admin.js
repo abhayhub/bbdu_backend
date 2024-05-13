@@ -29,7 +29,7 @@ router.post('/login', async(req,res) => {
             return res.status(400).json({message : "Wrong Password"});
         }
         const token = jwt.sign({userId: user._id}, process.env.SECRETKEY , {expiresIn : '1d'});
-        res.cookie("admin_token", token, {httpOnly: false, sameSite : 'none' , secure : false});
+        res.cookie("admin_token", token, {httpOnly: true, sameSite : 'none' , secure : true, maxAge: 86400000});
         res.status(200).json({userId: user._id});
     } catch (error) {
         res.status(500).json({message : "Something went wrong"});
