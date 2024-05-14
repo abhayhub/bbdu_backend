@@ -19,8 +19,7 @@ app.use(cookieParser());
 app.use(shouldSendSameSiteNone);
 app.use(cors({
     origin: ['http://localhost:5173','https://finalfrontend-sigma.vercel.app'],
-    credentials: true,
-    exposedHeaders: ["Set-Cookie"]
+    credentials: true
 }))
 app.use(express.json());
 
